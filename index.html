@@ -1,22 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTML form submit to Google Sheet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <form method="POST" action="https://script.google.com/macros/s/AKfycbyBP7oi2lk7vlQjs4oVjS5ZEeaMR8URyfZSU27WbUFtWc7aCz51QwDsjd68fQ9f1Xk/exec" enctype="multipart/form-data">
-        <h2>Registro Biblioteca</h2>
-        <input type="text" name="voluntario" placeholder="Voluntario">
-        <textarea name="titulo" cols="40" rows="3" placeholder="Titulo"></textarea>
-        <textarea name="autor" cols="40" rows="3" placeholder="Autor"></textarea>
-        <input type="text" name="tematica" placeholder="Tematica">
-        <input type="number" name="anio" placeholder="Año">
-        <input type="text" name="codigo" placeholder="Codigo">
-        <input type="file" accept="image/*" name="foto">
-        <input class="btn" type="submit" value="Enviar">
-    </form>
+  <div class="container text-center">
+    <br>
+    <h1>HTML form submit to Google Sheet</h1>
+    <br>
+    <div class="card mx-auto" style="width: 18rem;">
+      <div class="card-body">
+        <form name="submit-to-google-sheet">
+          <div class="mb-3">
+            <input name="fullname" type="text" class="form-control" placeholder="Fullname" required>
+          </div>
+
+          <div class="mb-3">
+            <input name="email" type="email" class="form-control" placeholder="Email" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

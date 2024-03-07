@@ -7,28 +7,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form
-        method="POST" 
-        action="https://script.google.com/macros/s/AKfycbyKIbbLJpEM_kW4wYD9Oa08Y5W81AovI8bEzdGEGEIl4bETW0TGPoXSo9O4g47oErDW/exec"  
-        >
+    <form id="myForm" enctype="multipart/form-data">
         <h2>Registro Biblioteca</h2>
-                      
-            <input type="text" name="voluntario" placeholder="Voluntario">
-            <textarea name="titulo" cols="40" rows="3" placeholder="titulo"></textarea>
-            <textarea name="autor" cols="40" rows="3" placeholder="autor"></textarea>
-            <input type="text" name="tematica" placeholder="Tematica">
-            <input type="number" name="anio" placeholder="Año">
-            <input type="text" name="codigo" placeholder="codigo">
-            <input type="button" value="Tomar Foto" onclick="document.getElementById('photoInput').click()">
-            <input type="file" accept="image/*" capture="camera" name="foto" id="photoInput">            
-            <input class="btn" type="submit" value="Enviar">
-           
+        <input type="text" name="voluntario" placeholder="Voluntario">
+        <textarea name="titulo" cols="40" rows="3" placeholder="Titulo"></textarea>
+        <textarea name="autor" cols="40" rows="3" placeholder="Autor"></textarea>
+        <input type="text" name="tematica" placeholder="Tematica">
+        <input type="number" name="anio" placeholder="Año">
+        <input type="text" name="codigo" placeholder="Codigo">
+        <input type="file" accept="image/*" name="foto">            
+        <input class="btn" type="submit" value="Enviar">
     </form>
-    <img id="imagePreview" style="display:none;">
+
     <script>
-      function previewImage(event) {
-          var image = document.getElementById('imagePreview');
-          image.src = URL.createObjectURL(event.target.files[0]);
-          image.style.display = 'block';
-      }
-  </script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar que el formulario se envíe normalmente
+            
+            var formData = new FormData(this);
+            
+            fetch('https://script.google.com/macros/s/AKfycbyNvZkcBYxLOd9dehzpfnr5utnTBzpW3WmD-0-dyrID-ETfnScQV8M09KpZELMwaWF1/exec', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                // Aquí puedes manejar la respuesta del servidor si es necesario
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>

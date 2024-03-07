@@ -8,35 +8,36 @@
 </head>
 <body>
     <form>
-        <h2>Contacto</h2>
-        <div class="form-text">
-            <a href="#">Politica de privacidad</a>
-            <a href="#">Terminos de referencia</a>
-        </div>
-        <div class="input-group">
-            
-            <input type="text" name="name" placeholder="Nombre">
-            <input type="tel" name="phone" placeholder="Telefono">
-            <input type="email" name="email" placeholder="Email">
-            <textarea name="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+        <h2>Registro Biblioteca</h2>
+                
+            <input type="text" name="voluntario" placeholder="Voluntario">
+            <textarea name="titulo" cols="40" rows="3" placeholder="titulo"></textarea>
+            <textarea name="autor" cols="40" rows="3" placeholder="autor"></textarea>
+            <input type="text" name="tema" placeholder="Tematica">
+            <input type="number" name="anio" placeholder="Año">
+            <input type="text" name="codigo" placeholder="codigo">
             <input type="button" value="Tomar Foto" onclick="document.getElementById('photoInput').click()">
-            
-            <!-- Nuevo campo para tomar fotos -->
-            <input type="file" accept="image/*" capture="camera" name="photo" id="photoInput">
-            
+            <input type="file" accept="image/*" capture="camera" name="photo" id="photoInput">            
             <input class="btn" type="submit" value="Enviar">
+            <p>Sheets API Quickstart</p>
+            <!--Add buttons to initiate auth sequence and sign out-->
+    <button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+    <button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+
+
         </div>
     </form>
-        
-    <script>
-        // Función para previsualizar la imagen tomada
-        function previewPhoto(event) {
-            const preview = document.createElement('img');
-            preview.style.width = '100px'; // Ajustar el tamaño de la vista previa según sea necesario
-            preview.style.height = 'auto'; // Ajustar el tamaño de la vista previa según sea necesario
-            preview.src = URL.createObjectURL(event.target.files[0]);
-            document.body.appendChild(preview);
-        }
+    <script src="js/takephoto.js"></script>   
+      
+    
+
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+
+    <script src="js/auth.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+</body>
+</html>
 
         const photoInput = document.getElementById('photoInput');
         photoInput.addEventListener('change', previewPhoto);

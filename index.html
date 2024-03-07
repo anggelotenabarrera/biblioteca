@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <h2>Contacto</h2>
+        <div class="form-text">
+            <a href="#">Politica de privacidad</a>
+            <a href="#">Terminos de referencia</a>
+        </div>
+        <div class="input-group">
+            
+            <input type="text" name="name" placeholder="Nombre">
+            <input type="tel" name="phone" placeholder="Telefono">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="message" cols="30" rows="5" placeholder="Mensaje"></textarea>
+            <input type="button" value="Tomar Foto" onclick="document.getElementById('photoInput').click()">
+            
+            <!-- Nuevo campo para tomar fotos -->
+            <input type="file" accept="image/*" capture="camera" name="photo" id="photoInput">
+            
+            <input class="btn" type="submit" value="Enviar">
+        </div>
+    </form>
+        
+    <script>
+        // Función para previsualizar la imagen tomada
+        function previewPhoto(event) {
+            const preview = document.createElement('img');
+            preview.style.width = '100px'; // Ajustar el tamaño de la vista previa según sea necesario
+            preview.style.height = 'auto'; // Ajustar el tamaño de la vista previa según sea necesario
+            preview.src = URL.createObjectURL(event.target.files[0]);
+            document.body.appendChild(preview);
+        }
+
+        const photoInput = document.getElementById('photoInput');
+        photoInput.addEventListener('change', previewPhoto);
+    </script>
+</body>
+</html>

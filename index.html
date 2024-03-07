@@ -1,30 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <form
-        method="POST" 
-        action="https://script.google.com/macros/s/AKfycbyNvZkcBYxLOd9dehzpfnr5utnTBzpW3WmD-0-dyrID-ETfnScQV8M09KpZELMwaWF1/exec"  
-        >
-        <h2>Registro Biblioteca</h2>
-                      
-            <input type="text" name="voluntario" placeholder="Voluntario">
-            <textarea name="titulo" cols="40" rows="3" placeholder="titulo"></textarea>
-            <textarea name="autor" cols="40" rows="3" placeholder="autor"></textarea>
-            <input type="text" name="tematica" placeholder="Tematica">
-            <input type="number" name="anio" placeholder="Año">
-            <input type="text" name="codigo" placeholder="codigo">
-            <input type="button" value="Tomar Foto" onclick="document.getElementById('photoInput').click()">
-            <input type="file" accept="image/*" capture="camera" name="foto" id="photoInput">            
-            <input class="btn" type="submit" value="Enviar">
-           
-    </form>
-    
-
-</body>
-</html>
+<form method="POST" action="https://script.google.com/macros/s/AKfycbyNvZkcBYxLOd9dehzpfnr5utnTBzpW3WmD-0-dyrID-ETfnScQV8M09KpZELMwaWF1/exec">
+  <input name="Email" type="email" placeholder="Email" required>
+  <input name="Name" type="text" placeholder="Name" required>
+  <button type="submit">Send</button>
+</form>

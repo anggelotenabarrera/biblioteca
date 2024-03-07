@@ -32,6 +32,18 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby9zlf6UyqGhgNI9OUQ_L6eH8GykJFh753vqEDRJpQb8sKq4qD_SfO8Bcg8OeSsEEYLnQ/exec'
+    const form = document.forms['prueba_n']
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
 </body>
 
 </html>

@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Formulario de Envío</title>
-<script src="https://apis.google.com/js/api.js"></script>
-</head>
-<body>
-<h1>Formulario de Envío</h1>
-<form id="myForm" action="https://script.google.com/macros/s/AKfycbwZHVr24bt1vE0gTkKTneECLEvPizSi7RiIXgzy_Q7b5-BDdbGyXxJWQrGfoksccqNsZA/exec" method="POST" enctype="multipart/form-data">
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre" required><br><br>
-  
-  <label for="imagen">Imagen:</label>
-  <input type="file" id="imagen" name="imagen" accept="image/*" required><br><br>
-  
-  <input type="submit" value="Enviar">
-</form>
+  <head>
+    <meta charset="utf-8">
+    <title><?=content ?></title>
+  </head>
+  <body>
+    <h1><?=content ?></h1>
+    <div id="output"></div>
+    <form id="myForm" action="https://script.google.com/macros/s/AKfycbwthbShiHRakkB59LwUqgJOekcgyjDxjE6yH7dIV0xB8TpbhZhjHEJhvJwNLDhaBH7R/exec" method="POST" enctype="multipart/form-data">
 
-<script>
-document.getElementById("myForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  const form = event.target;
-  const formData = new FormData(form);
-  
-  google.script.run.procesarFormulario(formData);
-  form.reset();
-});
-</script>
-</body>
+    <input type="type" name="first" id="first" placeholder="Nombre de archivo">
+    <input type="file" name="myImage" multiple>
+    <input type="button" id="subButton" value="Enviar">
+    </form>
+    <script>
+      const output = document.getElementById('output');
+      const first = document.getElementById('first');
+      document.getElementById('subButton').addEventListener('click', function(e){
+        e.preventDefault();
+        output.innerHTML = first.value;
+        google.script.run.withSuccessHandler(onSuccess).doUpload(this.parentNode)
+      })
+      function onSuccess(data){
+        if(data.status){
+          output.innerHTML = 'Archivo cargado con éxito <br> <a href="'+data.url+'"target="_blank">'+data.url+'</a>';
+        }
+      }
+    </script>
+  </body>
 </html>
+

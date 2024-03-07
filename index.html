@@ -1,32 +1,22 @@
-<!DOCTYPE html > 
-< html > 
-  < cabeza > 
-    < base  target = "_top" /> 
-  </ cabeza > 
-< cuerpo > 
-    < formulario >
-       Texto1: < tipo de entrada  = "texto" nombre = "sampleText1" />  < br />
-       Texto2: < tipo de entrada  = "texto" nombre = "sampleText2" />  < br /> 
-      < seleccionar  nombre = "sampleDropdown1" > 
-        < valor de opción  = "sampleOption1" > muestra1 </ opción > 
-        < valor de opción  = "sampleOption2" > muestra2 </ opción > 
-        < valor de opción  = "muestraOpción3" > muestra3 </ opción > 
-      </ seleccionar >
-       Archivo: < tipo de entrada  = "archivo" nombre = "archivos de muestra" múltiple />   < br /> 
-      < tipo de entrada = "enviar" nombre = "botón" valor = "enviar" onclick = "ejecutar(esto);return false;"       /> 
-        
-        
-    
-        
-
-    </ form > 
-    < script  src = "https://anggelotenabarrera.github.io/biblioteca" > </ script > 
-    < script > ejecución de función 
-      asíncrona  ( e ) { url const = "https://script.google.com/macros/s/AKfycbxjt3eb8WefR6YaEI04LlHDDVOSvLP6YeU6hp4Vaw5Zo-rPJ9vKOzYawHITFLYDUSVQ/exec" ; // Configure aquí la URL de su aplicación web. const obj = espera ParseFormObjectForGAS (e. parentNode , nulo , nulo , verdadero ); buscar (url, { método : "POST" 
-        
-         
-        , cuerpo : JSON . cadena (obj) }) 
-          . entonces ( ( res ) => res. json ()) 
-          . entonces ( ( res ) =>  consola . log (res)); 
-      } 
-    </script> </body> </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbyBP7oi2lk7vlQjs4oVjS5ZEeaMR8URyfZSU27WbUFtWc7aCz51QwDsjd68fQ9f1Xk/exec" enctype="multipart/form-data">
+        <h2>Registro Biblioteca</h2>
+        <input type="text" name="voluntario" placeholder="Voluntario">
+        <textarea name="titulo" cols="40" rows="3" placeholder="Titulo"></textarea>
+        <textarea name="autor" cols="40" rows="3" placeholder="Autor"></textarea>
+        <input type="text" name="tematica" placeholder="Tematica">
+        <input type="number" name="anio" placeholder="Año">
+        <input type="text" name="codigo" placeholder="Codigo">
+        <input type="file" accept="image/*" name="foto">
+        <input class="btn" type="submit" value="Enviar">
+    </form>
+</body>
+</html>

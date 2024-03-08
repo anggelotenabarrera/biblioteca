@@ -16,7 +16,7 @@
   <body>
     <h1><?=content ?></h1>
     <div id="output"></div>
-    <form method="POST" action="https://script.google.com/macros/s/AKfycbykW8ipjBI8Ip2LLbVj5v9MEM7MsgLF5XVqaHdk-Cs1SoNRAf_brnO4mdj1rrswxL2B/exec">
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbxj2joillyyPHvg4Q6U_Vy7FZpQ7WuW4p_OWnXmay_DhqC4cdHFP-lNWsv1EP98QFrK/exec">
     <input type="type" name="first" id="first" placeholder="Nombre de archivo">
     <input type="file" name="myImage" multiple>
     <input type="button" id="subButton" value="Enviar">
@@ -37,25 +37,3 @@
     </script>
   </body>
 </html>
-">
-    <input type="type" name="first" id="first" placeholder="Nombre de archivo">
-    <input type="file" name="myImage" multiple>
-    <input type="button" id="subButton" value="Enviar">
-    </form>
-    <script>
-      const output = document.getElementById('output');
-      const first = document.getElementById('first');
-      document.getElementById('subButton').addEventListener('click', function(e){
-        e.preventDefault();
-        output.innerHTML = first.value;
-        google.script.run.withSuccessHandler(onSuccess).doUpload(this.parentNode)
-      })
-      function onSuccess(data){
-        if(data.status){
-          output.innerHTML = 'Archivo cargado con éxito <br> <a href="'+data.url+'"target="_blank">'+data.url+'</a>';
-        }
-      }
-    </script>
-  </body>
-</html>
-
